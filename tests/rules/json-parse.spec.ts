@@ -16,6 +16,7 @@ ruleTester.run("json-parse-in-try-catch", rule, {
       `,
     },
     {
+      // new syntax (no params in `catch` block)
       code: `
         try {
           JSON.parse('{}');
@@ -23,6 +24,7 @@ ruleTester.run("json-parse-in-try-catch", rule, {
       `,
     },
     {
+      // new syntax (no `catch` block)
       code: `
         try {
           JSON.parse('{}');
@@ -38,6 +40,7 @@ ruleTester.run("json-parse-in-try-catch", rule, {
       `,
     },
     {
+      // JSON.parse in `finally` block, but it's wrapped again
       code: `
         let a = null;
         try {
@@ -46,6 +49,12 @@ ruleTester.run("json-parse-in-try-catch", rule, {
             a = JSON.parse('{}');
           } finally {}
         }
+      `,
+    },
+    {
+      // no JSON.parse at all
+      code: `
+        console.log('ok');
       `,
     },
   ],

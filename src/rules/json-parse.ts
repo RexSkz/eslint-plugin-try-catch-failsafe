@@ -62,8 +62,8 @@ module.exports = {
           if (range[0] < node.range[0] && node.range[1] < range[1]) {
             return;
           }
+          context.report({ node, messageId: 'shouldWrap' });
         }
-        context.report({ node, messageId: 'shouldWrap' });
       },
     };
   },
