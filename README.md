@@ -18,8 +18,8 @@ Add this plugin to your ESLint configuration.
 
 ```json
 {
-  "plugins": [
-    "try-catch-failsafe"
+  "extends": [
+    "plugin:try-catch-failsafe/default"
   ]
 }
 ```
