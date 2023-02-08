@@ -69,3 +69,47 @@ try {
 ```
 
 If you are confident that the `JSON.parse` will not throw an error, you can disable this rule.
+
+### try-catch-failsafe/new-url
+
+- **Default**: `error`
+- **Fixable**: `false`
+
+Make sure to use try-catch to wrap up `new URL()`. Notice that the `new URL()` in `catch` or `finally` block may also throw an error in JavaScript, so we should wrap them up too.
+
+```js
+// ❌ Error
+new URL('');
+
+// ❌ Error
+try {
+  // some code that may throw an error
+} catch (e) {
+  new URL('');
+}
+
+// ❌ Error
+try {
+  // some code that may throw an error
+} finally {
+  new URL('');
+}
+
+// ✅ OK
+try {
+  new URL('');
+} catch (e) {
+  console.error(e);
+}
+
+// ✅ OK
+try {
+  // some code that may throw an error
+} finally {
+  try {
+    new URL('');
+  } finally {}
+}
+```
+
+If you are confident that the `new URL()` will not throw an error, you can disable this rule.
