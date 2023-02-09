@@ -22,7 +22,7 @@ const findTryStatementRange = (
      *   new URL('');
      * }
      *
-     * So if node is wrapped in `catch` or `finally` block, we shoud
+     * So if node is wrapped in `catch` or `finally` block, we should
      * still report the error.
      */
     if (node.parent?.handler === node || node.parent?.finalizer === node) {
