@@ -8,6 +8,7 @@ module.exports = {
       plugins: ['try-catch-failsafe'],
       rules: {
         'try-catch-failsafe/json-parse': 'error',
+        'try-catch-failsafe/new-url': 'error',
       },
     },
   },
